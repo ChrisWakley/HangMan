@@ -53,7 +53,7 @@ public class Main {
             String response = userReply.nextLine().toLowerCase();
             if (!response.equals("n")) {
                 flag = true;
-                System.out.println("Game reset.");
+                System.out.println("Game reset, please enter a letter to begin.");
             } else if ("n".equals(response)) {
                 flag = false;
                 System.out.println("game exit");
