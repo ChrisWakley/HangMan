@@ -10,7 +10,6 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         char[] underscoreArr = new char[answer.length()];
         int lives = 8;
-        boolean result = true;
 
         for (int i = 0; i < answer.length(); i++) {
             underscoreArr[i] = '_';
@@ -18,24 +17,24 @@ public class Main {
 
         while (lives > 0) {
             char input = scanner.next().toLowerCase().charAt(0);
-            if (answer.contains(String.valueOf(input))) {
-                for (int i = 0; i < answer.length(); i++) {
-                    if (input == answer.charAt(i)) {
-                        underscoreArr[i] = input;
+                if (answer.contains(String.valueOf(input))) {
+                    for (int i = 0; i < answer.length(); i++) {
+                        if (input == answer.charAt(i)) {
+                            underscoreArr[i] = input;
+                        }
                     }
+                } else {
+                    lives--;
                 }
-            } else {
-                lives--;
-            }
-            System.out.println(underscoreArr);
-            System.out.println(lives + " lives remaining.");
-            printHangman(lives);
+                System.out.println(underscoreArr);
+                System.out.println(lives + " lives remaining.");
+                printHangman(lives);
 
-            if (String.valueOf(underscoreArr).equals(answer)) {
-                System.out.println("You win, live another day!");
-                return true;
+                if (String.valueOf(underscoreArr).equals(answer)) {
+                    System.out.println("You win, live another day!");
+                    return true;
+                }
             }
-        }
         System.out.println("Oh dear, you died. The correct word was: " + answer);
         return false;
     }
